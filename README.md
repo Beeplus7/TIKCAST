@@ -3,6 +3,8 @@
 TikTok Creator Studio that runs like a TV channel.  
 **TikTok** = transmission tower (RTMP) · **TIKCAST** = control room (OBS + Dashboard + Automation + Safety).
 
+**Production:** https://tikcast.aikova.co.uk · https://tikcast.aikova.co.uk/readiness
+
 Web: Next.js 14 Command Center · Mobile: Expo companion · Backend: Supabase + Node + Python.
 
 ## Quick start
@@ -38,14 +40,13 @@ Local ports (avoids TapReward on 3001): **Dashboard 3005**, **Gateway 3010**, **
 - Rights Engine (Green / Yellow / Red)
 - Safety Net (keyword filter, Health Score, Kill Switch → BRB)
 - Content Factory (auto-clip edge function)
+- Live Shop + Licensed Music Bank (Supabase-backed)
 
 ## Supabase
 
-1. Create project `tikcast-live`
-2. `supabase link --project-ref YOUR_REF`
-3. `supabase db push` (migrations in `supabase/migrations/`)
-4. Deploy functions: `health-score`, `auto-clip`, `moderation`, `rights-check`
-5. Storage buckets: `wallpapers` (public 100MB), `videos` (private 500MB), `clips` (public)
+1. Project `soiybpixcgeyfucgnkmh` (or create your own)
+2. Apply `supabase/combined_apply.sql` (or `supabase db push`)
+3. Optional functions: `health-score`, `auto-clip`, `moderation`, `rights-check`
 
 ## Services
 
@@ -54,20 +55,16 @@ Local ports (avoids TapReward on 3001): **Dashboard 3005**, **Gateway 3010**, **
 | API Gateway | 3010 | `npm run dev:gateway` |
 | OBS Controller | 3011 | `npm run dev:obs` |
 | Safety Service | 3012 | `npm run dev:safety` |
+| Shop Engine | 3002 | `npm run dev:shop` |
+| Music Engine | 3003 | `npm run dev:music` |
 | Automation Engine | — | `npm run dev:automation` |
 | Dashboard | 3005 | `npm run dev:dashboard` |
 | Mobile | Expo | `npm run dev:mobile` |
 
-## Verification
+## Production VPS
 
-- Dashboard shows ON AIR + Health Score at `/command-center`
-- Scene buttons call OBS controller `POST /scene`
-- Wallpaper calls `POST /wallpaper`
-- Test banned word in Moderation Feed
-- Kill Switch cuts to BRB
+See `docs/deploy.md` · `scripts/deploy-vps.sh` · host `tikcast.aikova.co.uk`.
 
 ## Docs
 
 `docs/blueprint.md` · `docs/obs-setup.md` · `docs/safety-policy.md` · `docs/deploy.md` · `docs/permission-templates.md`
-
-Design sources from Downloads live in `design-source/`.
