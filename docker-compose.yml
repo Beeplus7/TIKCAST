@@ -1,0 +1,59 @@
+version: "3.9"
+
+services:
+  api-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile.gateway
+    ports:
+      - "3010:3010"
+    environment:
+      - API_GATEWAY_PORT=3010
+      - OBS_CONTROLLER_URL=http://obs-controller:3011
+      - SAFETY_SERVICE_URL=http://safety-service:3012
+      - TIKCAST_LOCAL=1
+    depends_on:
+      - obs-controller
+      - safety-service
+    volumes:
+      - ./.env:/app/.env:ro
+
+  obs-controller:
+    build:
+      context: .
+      dockerfile: Dockerfile.obs
+    ports:
+      - "3011:3011"
+    environment:
+      - OBS_CONTROLLER_PORT=3011
+      - OBS_WEBSOCKET_URL=${OBS_WEBSOCKET_URL:-ws://host.docker.internal:4455}
+      - OBS_WEBSOCKET_PASSWORD=${OBS_WEBSOCKET_PASSWORD:-}
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  automation-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.automation
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - OBS_CONTROLLER_URL=http://obs-controller:3011
+      - CHANNEL_ID=${CHANNEL_ID:-00000000-0000-4000-8000-000000000001}
+    depends_on:
+      - obs-controller
+
+  safety-service:
+    build:
+      context: ./apps/safety-service
+      dockerfile: Dockerfile
+    ports:
+      - "3012:3012"
+    environment:
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_SERVICE_ROLE_KEY=${SUPABASE_SERVICE_ROLE_KEY}
+      - OBS_CONTROLLER_URL=http://obs-controller:3011
+      - SAFETY_SERVICE_PORT=3012
+      - CHANNEL_ID=${CHANNEL_ID:-00000000-0000-4000-8000-000000000001}
+    depends_on:
+      - obs-controller

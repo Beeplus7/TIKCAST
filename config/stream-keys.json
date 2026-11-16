@@ -1,0 +1,11 @@
+{
+  "tiktok": {
+    "rtmp_url_env": "TIKTOK_RTMP_URL",
+    "stream_key_env": "TIKTOK_STREAM_KEY",
+    "placeholder_server": "rtmp://push.tiktokcdn.com/stage/"
+  },
+  "backup": {
+    "enabled": false,
+    "note": "Configure failover via scripts/failover.sh"
+  }
+}

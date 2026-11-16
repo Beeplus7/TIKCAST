@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TIKCAST Now Playing</title>
+  <style>
+    body { margin:0; width:1920px; height:1080px; background:transparent; font-family:system-ui,sans-serif; }
+    .np {
+      position:absolute; left:50%; bottom:48px; transform:translateX(-50%);
+      display:flex; align-items:center; gap:20px;
+      background:rgba(6,8,11,0.88); padding:16px 28px; border-radius:999px;
+      border:1px solid rgba(0,229,255,0.4);
+    }
+    .art { width:56px; height:56px; border-radius:8px; background:linear-gradient(135deg,#00e5ff,#7a1eff); }
+    .track { color:#fff; font-size:22px; font-weight:600; }
+    .artist { color:rgba(255,255,255,0.7); font-size:16px; }
+  </style>
+</head>
+<body>
+  <div class="np">
+    <div class="art"></div>
+    <div>
+      <div class="track" id="track">Midnight Mix</div>
+      <div class="artist" id="artist">DJ TikCast</div>
+    </div>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    document.getElementById('track').textContent = q.get('track') || 'Midnight Mix';
+    document.getElementById('artist').textContent = q.get('artist') || 'DJ TikCast';
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TIKCAST Lower Third</title>
+  <style>
+    * { margin: 0; box-sizing: border-box; }
+    body {
+      width: 1920px; height: 1080px; overflow: hidden;
+      background: transparent; font-family: "Segoe UI", system-ui, sans-serif;
+    }
+    .bar {
+      position: absolute; left: 48px; bottom: 120px;
+      background: linear-gradient(90deg, #ff2b8a, #7a1eff);
+      padding: 18px 32px; border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(255, 43, 138, 0.45);
+      transform: translateX(-120%);
+      animation: slide 0.6s ease forwards;
+    }
+    .name { color: #fff; font-size: 36px; font-weight: 700; }
+    .title { color: rgba(255,255,255,0.85); font-size: 22px; margin-top: 4px; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="name" id="name">@TikCastLive</div>
+    <div class="title" id="title">Creator · Live now</div>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    document.getElementById('name').textContent = q.get('name') || '@TikCastLive';
+    document.getElementById('title').textContent = q.get('title') || 'Creator · Live now';
+  </script>
+</body>
+</html>

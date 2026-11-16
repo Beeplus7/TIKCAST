@@ -1,0 +1,21 @@
+{
+  "channel_id": "00000000-0000-4000-8000-000000000001",
+  "schedules": [
+    {
+      "title": "Morning Show",
+      "starts_at": "2026-11-16T09:00:00Z",
+      "scene_name": "Full Cam",
+      "wallpaper_name": "Neon Club",
+      "playlist_id": "00000000-0000-4000-8000-000000000010",
+      "auto_start": true
+    },
+    {
+      "title": "Night Loop",
+      "starts_at": "2026-11-16T22:00:00Z",
+      "scene_name": "DJ Radio",
+      "wallpaper_name": "Cyber Grid",
+      "playlist_id": null,
+      "auto_start": true
+    }
+  ]
+}

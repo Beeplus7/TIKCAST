@@ -1,0 +1,15 @@
+{
+  "name": "@tikcast/automation-engine",
+  "version": "1.0.0",
+  "private": true,
+  "main": "scheduler.js",
+  "scripts": {
+    "start": "node scheduler.js",
+    "dev": "node scheduler.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
+    "dotenv": "^16.4.5",
+    "node-fetch": "^2.7.0"
+  }
+}

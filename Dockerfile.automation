@@ -1,0 +1,7 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY apps/automation-engine/package.json ./apps/automation-engine/
+RUN cd apps/automation-engine && npm install --omit=dev
+COPY apps/automation-engine ./apps/automation-engine
+WORKDIR /app/apps/automation-engine
+CMD ["node", "scheduler.js"]

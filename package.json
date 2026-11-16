@@ -1,0 +1,25 @@
+{
+  "name": "tikcast-live",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "apps/dashboard",
+    "apps/obs-controller",
+    "apps/automation-engine",
+    "apps/api-gateway",
+    "apps/shop-engine",
+    "apps/music-engine"
+  ],
+  "scripts": {
+    "dev:dashboard": "npm run dev --prefix apps/dashboard",
+    "dev:obs": "npm run dev --prefix apps/obs-controller",
+    "dev:automation": "npm run dev --prefix apps/automation-engine",
+    "dev:gateway": "npm run dev --prefix apps/api-gateway",
+    "dev:shop": "npm run dev --prefix apps/shop-engine",
+    "dev:music": "npm run dev --prefix apps/music-engine",
+    "dev:mobile": "npm start --prefix apps/mobile",
+    "dev:safety": "apps/safety-service/.venv/bin/uvicorn main:app --app-dir apps/safety-service --host 0.0.0.0 --port 3012",
+    "studio": "bash scripts/start-studio.sh",
+    "install:all": "npm install --prefix apps/dashboard && npm install --prefix apps/obs-controller && npm install --prefix apps/automation-engine && npm install --prefix apps/api-gateway && npm install --prefix apps/shop-engine && npm install --prefix apps/music-engine && npm install --prefix apps/mobile"
+  }
+}

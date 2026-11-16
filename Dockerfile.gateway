@@ -1,0 +1,9 @@
+FROM node:20-alpine
+WORKDIR /app
+COPY apps/api-gateway/package.json ./apps/api-gateway/
+COPY package.json ./
+RUN cd apps/api-gateway && npm install --omit=dev
+COPY apps/api-gateway ./apps/api-gateway
+WORKDIR /app/apps/api-gateway
+ENV API_GATEWAY_PORT=3000
+CMD ["node", "server.js"]

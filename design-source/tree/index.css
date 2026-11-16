@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root{
+  --bg:#07090c;
+  --surface:#0d1117;
+  --surface-2:#121820;
+  --surface-3:#181f2b;
+  --line:#242e3d;
+  --line-2:#334155;
+  --text:#f1f5f9;
+  --muted:#94a3b8;
+  --muted-2:#64748b;
+  --red:#ff2d55;
+  --red-dim:#7f1d2e;
+  --cyan:#22d3ee;
+  --amber:#fbbf24;
+  --green:#34d399;
+  --violet:#a78bfa;
+  --pink:#f472b6;
+}
+@media (prefers-color-scheme: light){
+  :root{
+    --bg:#eef2f6;
+    --surface:#ffffff;
+    --surface-2:#f1f5f9;
+    --surface-3:#e2e8f0;
+    --line:#cbd5e1;
+    --line-2:#94a3b8;
+    --text:#0f172a;
+    --muted:#475569;
+    --muted-2:#64748b;
+    --red:#e11d48;
+    --red-dim:#fecdd3;
+    --cyan:#0891b2;
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:'Space Grotesk',system-ui,-apple-system,Segoe UI,sans-serif}
+.mono{font-family:'JetBrains Mono',ui-monospace,SFMono-Regular,monospace}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-thumb{background:#334155;border-radius:99px}
+::-webkit-scrollbar-track{background:transparent}
+.tree-line{position:relative}
+.tree-line:before{content:"";position:absolute;left:9px;top:0;bottom:0;width:1px;background:var(--line)}
+details summary{list-style:none}
+button:focus-visible,a:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.flow-arrow{color:var(--cyan)}
+@keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.45;transform:scale(.78)}}
+.live-dot{animation:pulse-dot 1.4s ease-in-out infinite}
+@keyframes scan{0%{transform:translateX(-100%)}100%{transform:translateX(320%)}}
+.scan-bar{animation:scan 2.8s linear infinite}

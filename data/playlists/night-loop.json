@@ -1,0 +1,7 @@
+{
+  "title": "Night Loop",
+  "items": [
+    { "title": "DJ Set — Late Night Mix", "type": "MUSIC", "duration_seconds": 3480, "position": 1 },
+    { "title": "Ambient BRB Loop", "type": "CLIP", "duration_seconds": 600, "position": 2 }
+  ]
+}

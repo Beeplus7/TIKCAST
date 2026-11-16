@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #07090c;
+  --surface: #0d1117;
+  --surface-2: #141a21;
+  --surface-3: #1a222c;
+  --line: rgba(255,255,255,.11);
+  --line-strong: rgba(255,255,255,.20);
+  --red: #ff2d3f;
+  --red-deep: #c21022;
+  --cyan: #22d3ee;
+  --cyan-soft: rgba(34,211,238,.14);
+  --red-soft: rgba(255,45,63,.14);
+  --text: #f2f5f7;
+  --muted: #aab6c1;
+  --muted-2: #7d8b97;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #05070a; --surface: #0c1015; --surface-2: #12181f; }
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--text); font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif; }
+.font-display { font-family: 'Bebas Neue', 'Space Grotesk', sans-serif; letter-spacing: .04em; }
+a { color: inherit; }
+button { font-family: inherit; }
+::selection { background: var(--red); color: white; }
+.hero-grid {
+  background-image: linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 55%, transparent 100%);
+}
+.glow-red { box-shadow: 0 0 0 1px rgba(255,45,63,.35), 0 18px 55px rgba(255,45,63,.22); }
+.glow-cyan { box-shadow: 0 0 0 1px rgba(34,211,238,.3), 0 18px 55px rgba(34,211,238,.14); }
+.marquee { animation: marquee 28s linear infinite; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+details summary::-webkit-details-marker { display: none; }
+input, select, textarea { font-family: inherit; }
+input:focus, select:focus, textarea:focus { outline: 2px solid var(--cyan); outline-offset: 1px; border-color: transparent; }

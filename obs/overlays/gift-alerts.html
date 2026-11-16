@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TIKCAST Gift Alert</title>
+  <style>
+    body { margin:0; width:1920px; height:1080px; background:transparent; font-family:system-ui,sans-serif; }
+    .alert {
+      position:absolute; right:60px; top:140px;
+      background:rgba(6,8,11,0.85); border:2px solid #ffb020;
+      border-radius:16px; padding:20px 28px; min-width:320px;
+      animation: pop 0.5s ease;
+    }
+    .gift { color:#ffb020; font-size:28px; font-weight:800; }
+    .from { color:#fff; font-size:22px; margin-top:8px; }
+    @keyframes pop { from { transform:scale(0.8); opacity:0; } to { transform:scale(1); opacity:1; } }
+  </style>
+</head>
+<body>
+  <div class="alert">
+    <div class="gift" id="gift">Rose × 99</div>
+    <div class="from" id="from">from @fan</div>
+  </div>
+  <script>
+    const q = new URLSearchParams(location.search);
+    document.getElementById('gift').textContent = q.get('gift') || 'Rose × 99';
+    document.getElementById('from').textContent = 'from ' + (q.get('from') || '@fan');
+  </script>
+</body>
+</html>

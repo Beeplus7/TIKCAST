@@ -1,0 +1,15 @@
+{
+  "websocket": {
+    "url": "ws://localhost:4455",
+    "reconnect_ms": 5000
+  },
+  "defaults": {
+    "scene": "Full Cam",
+    "wallpaper_source": "Wallpaper",
+    "overlay_browser": "Browser Overlay"
+  },
+  "stream": {
+    "service": "Custom",
+    "encoder": "obs_x264"
+  }
+}

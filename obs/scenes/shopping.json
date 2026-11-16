@@ -1,0 +1,14 @@
+{
+  "current_scene": "Shopping",
+  "scenes": [
+    {
+      "name": "Shopping",
+      "sources": [
+        { "name": "Wallpaper", "type": "image_source", "placeholder": true },
+        { "name": "Camera", "type": "ffmpeg_source", "placeholder": true },
+        { "name": "Browser Overlay", "type": "browser_source", "placeholder": true }
+      ]
+    }
+  ],
+  "tikcast_layout": "shopping"
+}
