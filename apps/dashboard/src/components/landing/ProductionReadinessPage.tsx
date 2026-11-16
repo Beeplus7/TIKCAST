@@ -39,8 +39,8 @@ const NOTES_KEY = "tikcast_build_notes";
 const SCAN_DATE = "16 Nov 2026 · TEST PROD LIVE";
 
 /** Honest dual scores from live production test scan */
-const MVP_OVERALL = 88;
-const FULL_OVERALL = 61;
+const MVP_OVERALL = 91;
+const FULL_OVERALL = 68;
 
 const PHASES: { title: string; fullPct: number; mvpPct: number; items: ModuleItem[] }[] = [
   {
@@ -398,12 +398,14 @@ const PHASES: { title: string; fullPct: number; mvpPct: number; items: ModuleIte
       {
         id: "deploy",
         label: "Production host · HTTPS · aikova domain",
-        pct: 8,
-        mvpPct: 10,
-        status: "TODO",
-        mvpStatus: "TODO",
+        pct: 95,
+        mvpPct: 100,
+        status: "DONE",
+        mvpStatus: "DONE",
         surface: "full",
-        left: "VPS/Vercel + reverse proxy for engines",
+        href: "https://tikcast.aikova.co.uk",
+        desc: "LIVE · tikcast.aikova.co.uk · nginx + PM2 + Let's Encrypt · engines proxied",
+        left: "Optional: SSH key auth · rotate root password",
       },
       {
         id: "tests",
